@@ -10,15 +10,21 @@ var outputItem = <minecraft:clay_ball>;
 // The number of (var outputItem) which you get from Pulverizing a Stained Clay Block
 var numberOfOutputItems = 4;
 
-// The percentage chance of recovering dye. 5 is the same chance as getting dye from Pulverizing coloured wool
+// The percentage chance of recovering Dye. 5 is the same chance as getting Dye from Pulverizing coloured wool
 var chanceOfDye = 5;
+
+// The percentage chance of revovering an extra clay when Pulverizing Hardened Clay. Defaults to 50 because I think dye is generally about 10 times more valuable than clay
+var chanceOfExtraClayOnClay = 50;
 
 //mods.thermalexpansion.Pulverizer.addRecipe(InputRF, InputStack, OutputStack1, OutputStack2, Chance)
 
-// White stained clay (0) -> Clay and Bone Meal (15)
+// Hardened Clay (0) -> Clay
+mods.thermalexpansion.Pulverizer.addRecipe(rfToPulverizeStainedClay, <minecraft:hardened_clay>, outputItem * numberOfOutputItems, outputItem, chanceOfExtraClayOnClay);
+
+// White Stained Clay (0) -> Clay and Bone Meal (15)
 mods.thermalexpansion.Pulverizer.addRecipe(rfToPulverizeStainedClay, <minecraft:stained_hardened_clay>, outputItem * numberOfOutputItems, <minecraft:dye:15>, chanceOfDye);
 
-// Orange stained clay (1) -> Clay and Orange Dye (14)
+// Orange Stained Clay (1) -> Clay and Orange Dye (14)
 mods.thermalexpansion.Pulverizer.addRecipe(rfToPulverizeStainedClay, <minecraft:stained_hardened_clay:1>, outputItem * numberOfOutputItems, <minecraft:dye:14>, chanceOfDye);
 
 // Magenta Stained Clay (2) -> Clay and Magenta Dye (13)
